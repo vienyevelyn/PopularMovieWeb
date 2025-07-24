@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
@@ -41,6 +41,7 @@ function MovieDetail(){
 
     return(
         <>
+        <Link to={"/"}><button>Back</button></Link>
         <div className="bg-gray-400 rounded-md backdrop-filter backdrop-blur-sm bg-opacity-10 shadow-lg p-8">
             <h1 className="text-3xl font-bold mb-4">{movie.title}</h1>
             <img

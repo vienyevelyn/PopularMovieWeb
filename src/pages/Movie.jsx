@@ -54,10 +54,11 @@ function Movie(){
         if (currentPage > 1) setCurrentPage((prev) => prev - 1)
     }
 
-    
+
 
     return(
         <>
+        <Link to={"/profile"}><button>Back</button></Link>
             <div className="bg-gray-400 rounded-md backdrop-filter backdrop-blur-sm bg-opacity-10 shadow-lg min-h-screen py-10 px-4">
                 <h1 className="text-center">Most Popular Movie</h1>
                 <form onSubmit={WhenSearch} className="text-center mb-8">
