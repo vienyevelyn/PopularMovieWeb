@@ -41,18 +41,22 @@ function MovieDetail(){
 
     return(
         <>
-        <Link to={"/"}><button>Back</button></Link>
-        <div className="bg-gray-400 rounded-md backdrop-filter backdrop-blur-sm bg-opacity-10 shadow-lg p-8">
-            <h1 className="text-3xl font-bold mb-4">{movie.title}</h1>
-            <img
-                src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-                className="w-full mb-4"
-                alt={movie.title}
-            />
-            <p className="mb-2"><strong>Release Date:</strong> {movie.release_date}</p>
-            <p className="mb-2"><strong>Rating:</strong> {movie.vote_average}</p>
-            <p className="mb-2"><strong>Overview:</strong> {movie.overview}</p>
+        <Link to={"/"}><button className="m-4 mt-0 px-4 py-2 bg-blue-600 text-white block rounded-md hover:bg-blue-700 transition">Back</button></Link>
+        <div className="bg-gray-400 rounded-md backdrop-filter backdrop-blur-sm bg-opacity-10 shadow-lg p-8 flex flex-col md:flex-row">
+            <div className="left-side md:w-2/3">
+                <h1 className="text-3xl md:text-4xl font-bold mb-6 text-center text-white">{movie.title}</h1>
+                <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                    className="w-full max-w-[300px] mx-auto rounded-lg shadow-md mb-8"
+                    alt={movie.title}
+                />
+            </div>
+            <div className="right-side md:w-1/3">
+                <p className="mb-2 text-white text-start"><span className="font-semibold">Release Date:</span> {movie.release_date}</p>
+                <p className="mb-2 text-white text-start"><span className="font-semibold">Rating:</span> {movie.vote_average}</p>
+                <p className="mb-2 text-white text-start"><span className="font-semibold">Overview:</span> {movie.overview}</p>
 
+            </div>
+            
         </div>
         </>
     )
