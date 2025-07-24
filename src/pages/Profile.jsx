@@ -26,7 +26,7 @@ function Profile(){
     }
 
     const checkMovie = ()=>{
-        navigate('/Movie')
+        navigate('/')
     }
 
     return (
