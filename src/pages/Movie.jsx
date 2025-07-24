@@ -58,31 +58,33 @@ function Movie(){
 
     return(
         <>
-        <Link to={"/profile"}><button>Back</button></Link>
-            <div className="bg-gray-400 rounded-md backdrop-filter backdrop-blur-sm bg-opacity-10 shadow-lg min-h-screen py-10 px-4">
-                <h1 className="text-center">Most Popular Movie</h1>
+        <Link to={"/profile"}><button className="m-4 mt-0 px-4 py-2 bg-blue-600 text-white block rounded-md hover:bg-blue-700 transition">Back To Profile</button></Link>
+            <div className="bg-gray-400 rounded-md backdrop-filter backdrop-blur-sm bg-opacity-10 shadow-lg py-10 px-4">
+                <h1 className="text-3xl md:text-5xl font-bold text-center mb-10 text-white">Most Popular Movie</h1>
                 <form onSubmit={WhenSearch} className="text-center mb-8">
-                    <input type="text" placeholder="Search title.." value={search} onChange={e => setSearch(e.target.value)}/>
-                    <button type="submit">Search</button>
+                    <input type="text" placeholder="Search title.." value={search} onChange={e => setSearch(e.target.value)}
+                    className="w-full sm:w-1/2 px-4 py-2 rounded-md text-black placeholder-gray-500 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"/>
+                    <button type="submit"
+                    className="ms-3 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md transition">Search</button>
                 </form>
 
-                {error && <p className="text-center">{error}</p>}
+                {error && <p className="text-center text-red-400 text-lg mb-6">{error}</p>}
                 
                 {data.length === 0 ? (
-                    <p className="text-center">Movie not found. Please try again</p>
+                    <p className="text-center text-red-400 text-lg">Movie not found. Please try again</p>
                 ) 
             : (<>
                 
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 gap-8 max-w-7xl mx-auto">
                     {currentMovies.map((movie) => (
                 <Link to={`/movie/${movie.id}`} key={movie.id}>
-                <div key={movie.id} className="bg-white text-black rounded-lg overflow-hidden shadow-md hover:scale-105 transition duration-300">
+                <div key={movie.id} className="bg-white bg-opacity-10 backdrop-blur-md text-white rounded-lg overflow-hidden shadow-md hover:scale-105 transition duration-300 border border-white/20">
 
 
                 <img src={movie.poster_path ? 
                 `https://image.tmdb.org/t/p/w500${movie.poster_path}`
                 : "https://via.placeholder.com/250x300?text=No+Image"}
-                  className="w-full h-[300px] object-cover"/>
+                  className="w-full h-[400px]"/>
 
 
                 <div className="p-4">
@@ -94,13 +96,13 @@ function Movie(){
           </div>
           
           <div className="text-center mt-8">
-            <button onClick={goToPrev} disabled={currentPage === 1} className="px-4 py-2 bg-gray-700 rounded-md mr-2 disabled:opacity-50">
+            <button onClick={goToPrev} disabled={currentPage === 1} className="px-4 py-2 bg-blue-600 text-white rounded-md disabled:opacity-50 hover:bg-blue-700 transition">
                 Prev
             </button>
 
-            <span>Page {currentPage} of {totalPages} </span>
+            <span className="text-lg font-medium text-white mx-3">Page {currentPage} of {totalPages} </span>
 
-            <button onClick={goToNext} disabled={currentPage === totalPages} className="px-4 py-2 bg-gray-700 rounded-md ml-2 disabled:opacity-50">
+            <button onClick={goToNext} disabled={currentPage === totalPages} className="px-4 py-2 bg-blue-600 text-white rounded-md disabled:opacity-50 hover:bg-blue-700 transition">
                 Next
             </button>
           </div>
