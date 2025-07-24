@@ -5,15 +5,16 @@ import { useNavigate, Link } from "react-router-dom";
 function Register(){
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
+    const [email, setEmail] = useState('')
 
     const navigate = useNavigate();
     const WhenRegis = (e) =>{
         e.preventDefault()
-        if (!username || !password){ 
+        if (!username || !password || !email){ 
             return alert("Fill all fields!")
         }
 
-        localStorage.setItem('user', JSON.stringify({username, password}))
+        localStorage.setItem('user', JSON.stringify({username, password, email}))
 
         alert("Registration successful!")
         navigate('/login')
@@ -31,10 +32,13 @@ function Register(){
                     <h1 className="" style={{ color: "#090979" }}>Sign Up</h1>
                     <form onSubmit={WhenRegis}>
                         <div>
-                            <input type="text" placeholder="username" onChange={e => setUsername(e.target.value)}/>
+                            <input type="text" placeholder="username" value={username} onChange={e => setUsername(e.target.value)}/>
                         </div>
                         <div>
-                            <input type="password" onChange={e => setPassword(e.target.value)}/>
+                            <input type="email" placeholder="abc@gmail.com" value={email} onChange={e => setEmail(e.target.value)}/>
+                        </div>
+                        <div>
+                            <input type="password" value={password} onChange={e => setPassword(e.target.value)}/>
                         </div>
                         <button type="submit">Sign up</button>
 
