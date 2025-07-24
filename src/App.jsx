@@ -9,7 +9,6 @@ import Register from './pages/Register';
 import PrivateRoute from './components/PrivateRoute';
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
@@ -17,7 +16,7 @@ function App() {
     <Routes>
       {/* Private routes: Need login */}
       <Route path='/' element={<PrivateRoute><Movie/></PrivateRoute>}/>
-      <Route path='/movie/:name' element={<PrivateRoute><MovieDetail/></PrivateRoute>}/>    
+      <Route path='/movie/:id' element={<PrivateRoute><MovieDetail/></PrivateRoute>}/>    
       <Route path='/profile' element={<PrivateRoute><Profile/></PrivateRoute>}/>
 
       {/* Public routes: login register */}

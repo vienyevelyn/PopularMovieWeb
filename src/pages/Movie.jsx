@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 function Movie(){
 
@@ -22,7 +23,7 @@ function Movie(){
         setCurrentPage(1)
     }
 
-    async function fetchMovies() {
+    async function fetchMovies(){
         try {
             const response = await axios.get(url)
 
@@ -37,8 +38,8 @@ function Movie(){
     }
 
     useEffect(() => {
-        fetchMovies();
-    }, [query]);
+        fetchMovies()
+    }, [query])
 
     const indexOfLast = currentPage * pagination
     const indexOfFirst = indexOfLast - pagination
@@ -52,6 +53,8 @@ function Movie(){
     const goToPrev = () => {
         if (currentPage > 1) setCurrentPage((prev) => prev - 1)
     }
+
+    
 
     return(
         <>
@@ -68,8 +71,10 @@ function Movie(){
                     <p className="text-center">Movie not found. Please try again</p>
                 ) 
             : (<>
+                
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 gap-8 max-w-7xl mx-auto">
                     {currentMovies.map((movie) => (
+                <Link to={`/movie/${movie.id}`} key={movie.id}>
                 <div key={movie.id} className="bg-white text-black rounded-lg overflow-hidden shadow-md hover:scale-105 transition duration-300">
 
 
@@ -83,6 +88,7 @@ function Movie(){
                     <h2 className="text-lg font-bold">{movie.title}</h2>
                 </div>
             </div>
+            </Link>
             ))}
           </div>
           
