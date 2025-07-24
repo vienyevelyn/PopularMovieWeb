@@ -21,8 +21,8 @@ function App() {
       <Route path='/profile' element={<PrivateRoute><Profile/></PrivateRoute>}/>
 
       {/* Public routes: login register */}
-      <Route path='/login' element={<PrivateRoute><Login/></PrivateRoute>}/>
-      <Route path='/regis' element={<PrivateRoute><Register/></PrivateRoute>}/>
+      <Route path='/login' element={<Login/>}/>
+      <Route path='/regis' element={<Register/>}/>
     </Routes>
     </>
 
