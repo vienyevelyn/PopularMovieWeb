@@ -32,10 +32,10 @@ function Login(){
                     <h1 className="" style={{ color: "#090979" }}>Login</h1>
                     <form onSubmit={WhenLogin}>
                         <div>
-                            <input type="text" placeholder="username"/>
+                            <input type="text" placeholder="username"value={username} onChange={e => setUsername(e.target.value)}/>
                         </div>
                         <div>
-                            <input type="password"/>
+                            <input type="password" value={password} onChange={e => setPassword(e.target.value)}/>
                         </div>
                         <button type="submit">Login</button>
 

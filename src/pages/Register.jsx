@@ -36,10 +36,10 @@ function Register(){
                         <div>
                             <input type="password" onChange={e => setPassword(e.target.value)}/>
                         </div>
-                        <button type="submit">Login</button>
+                        <button type="submit">Sign up</button>
 
                     </form>
-                    <span>Have An Account? <Link to={"/login"}>Register</Link></span>
+                    <span>Have An Account? <Link to={"/login"}>Login</Link></span>
                 </div>
             </div>
 
